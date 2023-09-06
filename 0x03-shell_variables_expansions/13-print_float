@@ -1,2 +1,2 @@
 #!/bin/bash
-prinf "%.2lfNUM\n", $NUM"
+prinf "("%.2lfNUM" $NUM)"
