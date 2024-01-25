@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 using the 'while' loop
+
+num_of_times=0
+while [ $num_of_times -lt 10 ];
+do
+	echo "Best School"
+	((num_of_times++));
+done
