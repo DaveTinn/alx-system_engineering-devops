@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A script displaying "Best School" 10 times using the 'until' loop
+
+num_of_times=0
+until [ $num_of_times -eq 10 ];
+do
+	echo "Best School";
+	(( num_of_times++ ))
+done

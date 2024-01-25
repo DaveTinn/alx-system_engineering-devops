@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 using the 'while' loop
+# But for the 9th iteration, it displays "Best School" and then "Hi" on new line
+
+num_of_times=0
+while [ $num_of_times -lt 10 ];
+do
+	if [ $num_of_times -eq 9 ];
+	then
+		echo "Hi"
+	fi
+		echo "Best School"
+		((num_of_times++));
+done
