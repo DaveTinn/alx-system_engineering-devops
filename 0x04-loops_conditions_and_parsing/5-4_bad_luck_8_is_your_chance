@@ -5,7 +5,7 @@
 #	'Best School' for the other iterations
 
 num_of_times=0
-while [ $num_of_times -le 10 ];
+while [ $num_of_times -lt 10 ];
 do
 	if [ $num_of_times -eq 3 ];
 	then
