@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# A Bash script displaying number 1 to 20 and:
+#	displays '4' and then "bad luck from China" for the 4th loop iteration
+#	displays '9' and then "bad luck from Japan" for the 9th loop iteration
+#	displays '17' and then "bad luck from Italy" for the 17th loop iteration
+
+num_of_times=1
+while [ $num_of_times -le 20 ];
+do
+	echo "$num_of_times"
+	case $num_of_times in
+		"4") echo "bad luck from China";;
+		"9") echo "bad luck from Japan";;
+		"17") echo "bad luck from Italy";;
+	esac
+	(( num_of_times++ ))
+done
