@@ -3,9 +3,8 @@
 # Requirements:
 #	You must use "kill"
 
-pid=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
-
-if [ -n "$pid" ]
-then
-	kill "$pid"
-fi
+while true;
+do
+	echo "To infinity and beyond"
+	kill $$
+done
