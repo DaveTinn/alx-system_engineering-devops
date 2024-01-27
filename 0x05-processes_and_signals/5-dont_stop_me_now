@@ -2,7 +2,7 @@
 # A Bash script that stops "4-to_infinity_and_beyond" process
 # Requirements:
 #	You must use "kill"
-pid=$(pgrep "bash ./ infinity and beyond" -f)
+pid=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
 if [ -n "$pid" ];
 then
 	kill "$pid"
