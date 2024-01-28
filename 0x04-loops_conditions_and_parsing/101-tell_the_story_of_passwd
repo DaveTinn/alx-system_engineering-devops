@@ -3,13 +3,13 @@
 # The while loop must be used
 while IFS= read -r contents
 do
-	user=$(echo "contents" | cut -f 1 -d ':')
-	pass=$(echo "contents" | cut -f 2 -d ':')
-	uid=$(echo "contents" | cut -f 3 -d ':')
-	gid=$(echo "contents" | cut -f 4 -d ':')
-	u_info=$(echo "contents" | cut -f 5 -d ':')
-	home=$(echo "contents" | cut -f 6 -d ':')
-	command=$(echo "contents" | cut -f 7 -d ':')
+	user=$(echo "$contents" | cut -f 1 -d ':')
+	pass=$(echo "$contents" | cut -f 2 -d ':')
+	uid=$(echo "$contents" | cut -f 3 -d ':')
+	gid=$(echo "$contents" | cut -f 4 -d ':')
+	u_info=$(echo "$contents" | cut -f 5 -d ':')
+	home=$(echo "$contents" | cut -f 6 -d ':')
+	command=$(echo "$contents" | cut -f 7 -d ':')
 
 	echo -n "The user $user is part of the $gid gang, "
 	echo -n "lives in $home and rides $command."
