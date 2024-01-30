@@ -1,4 +1,4 @@
-#!usr/bin/env ruby
+#!/usr/bin/env ruby
 # A Ruby script that accepts one argument and pass it to a regex matching method
 # Regex should not contain square brackets
 
