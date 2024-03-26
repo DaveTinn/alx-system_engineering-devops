@@ -14,9 +14,9 @@ file { '/var/www/html/index.html':
     require => Pcakage['nginx'],
 }
 
-exec { 'redirect_me':
+exec {'redirect_me':
     command  => 'sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default',
-    provider => 'shell',
+    provider => 'shell'
 }
 
 service { 'nginx':
