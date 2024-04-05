@@ -32,3 +32,17 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+
+frontend http
+	bind *:80
+	mode http
+	default_backend web-backend
+
+frontend www-https
+	bind *:443 ssl crt /etc/haproxy/certs/mirolic.tech.pem
+	default_backend web-backend
+
+backend web-backend
+	balance roundrobin
+	server 78806-web-01 54.144.136.64:80 check
+	server 78806-web-02 100.24.236.179:80 check
