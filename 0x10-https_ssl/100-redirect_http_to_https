@@ -33,9 +33,18 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http                                                                                                            bind *:80                                                                                                        mode http
-        default_backend web-backend                                                                                                                                                                                               frontend www-https
+frontend http
+	bind *:80
+	mode http
+	default_backend web-backend
+
+frontend www-https
     bind *:443 ssl crt /etc/haproxy/certs/davetinn.tech.pem
-    mode http                                                                                                        default_backend web-backend                                                                                                                                                                                                   backend web-backend                                                                                                  mode http                                                                                                        balance roundrobin
+    mode http
+    default_backend web-backend
+
+backend web-backend
+    balance roundrobin
+    redirect scheme https code 301 if !{ ssl_fc }
     server 523472-web-01 54.158.182.245:80 check
-    server 523472-web-02 54.146.93.24:80 check  
+    server 523472-web-02 54.146.93.24:80 check
