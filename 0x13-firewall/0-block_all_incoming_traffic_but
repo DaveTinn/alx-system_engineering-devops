@@ -2,7 +2,7 @@
 # Install the ufw and set up few rules on web-01
 # ufw configured to block all incoming traffing except some TCP ports.
 sudo apt-get ufw
-sudo ufw enable
 sudo ufw allow 22/tcp
 sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
+sudo ufw enable
