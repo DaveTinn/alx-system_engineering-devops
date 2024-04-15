@@ -3,6 +3,7 @@
 apt-get ufw
 ufw disable
 ufw enable
+ufw default deny incoming
 ufw allow 22/TCP
 ufw allow 443/TCP
 ufw allow 80/TCP
