@@ -28,14 +28,12 @@ def get_employee_info(id):
 
     employee["name"] = employee_name
     employee["todos"] = todos_to_json
-
     return employee
-
 
 def show_employee_info(info):
     if not info:
         print("Employee not found")
-        return
+        return None
 
     employee_name = info.get("name")
     tasks_completed = [todo for todo in info["todos"] if todo["completed"]]
