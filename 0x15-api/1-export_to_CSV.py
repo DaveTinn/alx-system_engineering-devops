@@ -9,7 +9,7 @@ import sys
 
 def export_data(id):
     """
-    Function to get information about a to-do list progress
+    Function to export data in CSV format
 
     Arguments:
         id (int): the employee ID.
