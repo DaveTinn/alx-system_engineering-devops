@@ -15,7 +15,6 @@ def get_employee_info(id):
     Arguments:
         id (int): the employee ID.
     """
-    employee = {}
 
     url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
     employee_response = requests.get(url)
@@ -25,33 +24,20 @@ def get_employee_info(id):
     url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
     todos_response = requests.get(url)
     todos_to_json = todos_response.json()
+    total_tasks = len(todos_to_json)
 
-    employee["name"] = employee_name
-    employee["todos"] = todos_to_json
-    return employee
+    num_of_tasks_completed = 0
+    todo_list = ""
 
-
-def show_employee_info(info):
-    if not info:
-        print("Employee not found")
-        return None
-
-    employee_name = info.get("name")
-    tasks_completed = [todo for todo in info["todos"] if todo["completed"]]
-    all_tasks = len(info["todos"])
-    num_of_tasks_completed = len(tasks_completed)
-
+    for todo in todos_to_json:
+        if todo.get("completed") is True:
+            num_of_tasks_completed += 1
+            todo_list += "\t " + todo.get("title") + "\n"
     print("Employee {} is done with tasks({}/{}):".format(
-           employee_name, num_of_tasks_completed, all_tasks))
-    for todo in tasks_completed:
-        print("\t{}".format(todo["title"]))
+           employee_name, num_of_tasks_completed, total_tasks))
+
+    print(todo_list[:-1])
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py [id]")
-        sys.exit(1)
-
-    employee_id = sys.argv[1]
-    employee_info = get_employee_info(employee_id)
-    show_employee_info(employee_info)
+    get_employee_info(sys.argv[1])

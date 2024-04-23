@@ -14,12 +14,11 @@ def export_data(id):
     Arguments:
         id (int): the employee ID.
     """
-    employee = {}
 
     url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
     employee_response = requests.get(url)
     response_to_json = employee_response.json()
-    employee_name = response_to_json.get("name")
+    employee_name = response_to_json["name"]
 
     url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
     todos_response = requests.get(url)
@@ -31,14 +30,13 @@ def export_data(id):
 
     filename = "{}.csv".format(id)
 
-    with open(filename, "a") as f:
+    with open(filename, "a") as fn:
         for todo in todos_to_json:
             completed_tasks = todo.get("completed")
             task_title = todo.get("title")
-            csv_format = "\"{}\",\"{}\".\"{}\",\"{}\"\n"
-            csv_data = csv_format.format(
+            csv_data = "\"{}\",\"{}\",\"{}\",\"{}\"\n".format(
                         id, employee_name, completed_tasks, task_title)
-            f.write(csv_data)
+            fn.write(csv_data)
 
 
 if __name__ == "__main__":
