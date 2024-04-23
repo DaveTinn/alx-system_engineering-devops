@@ -30,6 +30,7 @@ def get_employee_info(id):
     employee["todos"] = todos_to_json
     return employee
 
+
 def show_employee_info(info):
     if not info:
         print("Employee not found")
