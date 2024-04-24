@@ -3,13 +3,14 @@
 A Python script to export data in CSV format.
 """
 
+import csv
 import requests
 import sys
 
 
-def export_data(id):
+def GetEmployee_Info(id):
     """
-    Function to export data in CSV format
+    Function to import data in CSV format
 
     Arguments:
         id (int): the employee ID.
@@ -30,14 +31,14 @@ def export_data(id):
 
     filename = "{}.csv".format(id)
 
-    with open(filename, "a") as fn:
-        for todo in todos_to_json:
-            completed_tasks = todo.get("completed")
-            task_title = todo.get("title")
+    with open(filename, "a") as csv_file:
+        for to_do in todos_to_json:
+            completed_tasks = to_do.get("completed")
+            task_title = to_do.get("title")
             csv_data = "\"{}\",\"{}\",\"{}\",\"{}\"\n".format(
                         id, employee_name, completed_tasks, task_title)
-            fn.write(csv_data)
+            csv_file.write(csv_data)
 
 
 if __name__ == "__main__":
-    export_data(sys.argv[1])
+    GetEmployee_Info(sys.argv[1])

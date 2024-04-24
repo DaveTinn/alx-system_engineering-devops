@@ -8,7 +8,7 @@ import requests
 import sys
 
 
-def get_employee_info(id):
+def GetEmployee_Info(id):
     """
     Function to get information about a to-do list progress
 
@@ -40,4 +40,4 @@ def get_employee_info(id):
 
 
 if __name__ == "__main__":
-    get_employee_info(sys.argv[1])
+    GetEmployee_Info(sys.argv[1])
