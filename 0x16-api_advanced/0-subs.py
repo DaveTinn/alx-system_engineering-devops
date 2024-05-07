@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
 
     # A custom User-Agent to avoid Too Many Requests
     headers = {
-            "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by u/Wunderkind94)"
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by u/Wunderkind94)"
     }
 
     # A GET requst to Reddit's API
